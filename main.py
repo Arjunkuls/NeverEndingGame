@@ -1,1 +1,8 @@
-print("Bye World!")
+from ursina import *
+
+# Create window
+app = Ursina()
+
+
+# Run app
+app.run()

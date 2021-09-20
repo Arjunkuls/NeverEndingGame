@@ -1,3 +1,4 @@
+#Neverending game
 from ursina import *
 
 # Create window

@@ -6,3 +6,9 @@ app = Ursina()
 
 # Run app
 app.run()
+
+
+
+#COMMIT AND PUSH
+#git commit -m "x commit"
+#git push origin main

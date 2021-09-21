@@ -6,7 +6,6 @@ from ursina.prefabs.platformer_controller_2d import PlatformerController2d
 player = PlatformerController2d(y=1, z=.01, scale_y=1, max_jumps=1)
 player.start_position = (1, 0.1)
 
-
 class Enemy(Entity):
     def __init__(self,x,y):
         super().__init__()

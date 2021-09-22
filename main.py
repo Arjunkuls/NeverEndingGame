@@ -3,7 +3,7 @@ import random
 app = Ursina()
 
 from ursina.prefabs.platformer_controller_2d import PlatformerController2d
-player = PlatformerController2d(y=1, z=.01, scale_y=1, max_jumps=1)
+player = PlatformerController2d(y=1, z=.01, scale_y=1, max_jumps=2, texture="Assets/player", color=color.white)
 player.start_position = (1, 0.1)
 
 class Enemy(Entity):
@@ -34,14 +34,35 @@ class Trap(Entity):
         if self.intersects(player.hit):
             return True
 
-enemy1 = Enemy(2, 2)
-ground = Entity(model='quad', scale_x=10, collider='box', color=color.black, y=0, x = 0)
+enemy1 = Enemy(4, 5)
 
-blockList = []
+x=0
+
+#Starting Platform
+for i in range(6):
+    ground = Entity(model='quad', scale_x=1, collider='box', texture='Assets/grass', x=x, y=0)
+    x+=0.95
+
+def makePlatform(num):
+    for x in range(num):
+        pos = (random.randint(5, 15), random.randint(1, 10))
+        x = pos[0]
+        for i in range(6):
+            Entity(model='quad', scale_x=1, collider='box', texture='Assets/grass', x=x, y=pos[1])
+            x+=0.9
+
+makePlatform(10)
+
+bg = Entity(model="quad", scale=(100, 100), texture="Assets/sky_cloud", z=1)
+
+poslist = []
 for i in range(5):
-    pos = (0, random.randint(1, 10))
-    Entity(model='quad', scale_x=10, collider='box', color=color.black, x=pos[0], y=pos[1])
+    pos = (random.randint(5, 15), random.randint(1, 10))
 
+    x = pos[0]
+    for i in range(6):
+        
+        x+=0.9
 
 camera.orthographic = True
 camera.position = (30/2,8)
@@ -51,6 +72,7 @@ camera.add_script(SmoothFollow(target=player, offset=[0,1,-30], speed=4))
 def update():
     if enemy1.onCollision():
         player.position = (0, 0)
+
 app.run()
 
 #COMMIT AND PUSH

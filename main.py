@@ -51,19 +51,9 @@ def makePlatform(num):
             Entity(model='quad', scale_x=1, collider='box', texture='Assets/grass', x=x, y=pos[1])
             x+=0.95
 
-makePlatform(10)
+makePlatform(5)
 
 bg = Entity(model="quad", scale=(100, 100), texture="Assets/sky_cloud", z=1)
-
-poslist = []
-for i in range(5):
-    pos = (random.randint(5, 15), random.randint(1, 10))
-
-    x = pos[0]
-    for i in range(6):
-        
-        x+=0.9
-
 camera.orthographic = True
 camera.position = (30/2,8)
 camera.fov = 16

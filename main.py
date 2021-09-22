@@ -23,7 +23,7 @@ class Trap(Entity):
     def __init__(self, x, y, player):
         super.__init__()
         self.model='quad',
-        self.scale_x = 10, 
+        self.scale_x = 10,
         self.collider='box', 
         self.color = color.purple
         self.x = x
@@ -50,7 +50,7 @@ camera.add_script(SmoothFollow(target=player, offset=[0,1,-30], speed=4))
 
 def update():
     if enemy1.onCollision():
-        player.position = (3, 10)
+        player.position = (0, 0)
 app.run()
 
 #COMMIT AND PUSH

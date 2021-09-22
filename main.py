@@ -19,13 +19,13 @@ class Enemy(Entity):
         if self.intersects(player).hit:
             return True
 class Trap(Entity):
-    def __init__(x, y, player):
+    def __init__(self, x, y, player):
         super.__init__(model='quad', scale_x=10, collider='box', color=color.purple)
         self.x = x
         self.y = y
         self.player = player
     
-    def onCollision():
+    def onCollision(self):
         if self.intersects(player.hit):
             return True
 

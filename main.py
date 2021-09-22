@@ -49,7 +49,7 @@ def makePlatform(num):
         x = pos[0]
         for i in range(6):
             Entity(model='quad', scale_x=1, collider='box', texture='Assets/grass', x=x, y=pos[1])
-            x+=0.9
+            x+=0.95
 
 makePlatform(10)
 
